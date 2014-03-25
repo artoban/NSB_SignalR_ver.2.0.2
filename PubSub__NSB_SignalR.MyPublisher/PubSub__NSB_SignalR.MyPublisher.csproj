@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{01085D2E-2691-4A9B-91AF-355E0D346A40}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PubSub__NSB_SignalR.MyPublisher</RootNamespace>
+    <AssemblyName>PubSub__NSB_SignalR.MyPublisher</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.0.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.0.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.0.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.0.2\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus">
+      <HintPath>..\packages\NServiceBus.Interfaces.4.0.0-rc0001\lib\net40\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>..\packages\NServiceBus.4.0.0-rc0001\lib\net40\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Host">
+      <HintPath>..\packages\NServiceBus.Host.4.0.0-rc0001\lib\net40\NServiceBus.Host.exe</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\PubSub__NSB_SignalR.Code\Infrastructure\Notifications\EventMessageSender.cs">
+      <Link>Infrastructure\EventMessageSender.cs</Link>
+    </Compile>
+    <Compile Include="..\PubSub__NSB_SignalR.Code\Notifications\EventMessageSender.cs">
+      <Link>Notifications\EventMessageSender.cs</Link>
+    </Compile>
+    <Compile Include="EndpointConfig.cs">
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f67c46dc6-fd17-4ee8-9882-d448d795ad99</SourceModelReference>
+      <ItemGuid>d7477727-6ed7-4e75-8d6e-67bc579afe88</ItemGuid>
+    </Compile>
+    <Compile Include="Infrastructure\MessageConventions.cs">
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\2\PubSub__NSB_SignalR____Demo\PubSub__NSB_SignalR\PubSub__NSB_SignalR.slnbldr%252f67c46dc6-fd17-4ee8-9882-d448d795ad99</SourceModelReference>
+      <ItemGuid>704be612-d961-4295-bde7-7f22cb40ed0a</ItemGuid>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Infrastructure\INServiceBusComponent.cs" />
+    <Compile Include="ServerEndpoint.cs" />
+    <Compile Include="TransportConfig.cs">
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f67c46dc6-fd17-4ee8-9882-d448d795ad99</SourceModelReference>
+      <ItemGuid>95e306fd-4b2b-462d-8bc1-45178b876919</ItemGuid>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Infrastructure\GeneratedCode\Config\MasterNodeConfig.config">
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f67c46dc6-fd17-4ee8-9882-d448d795ad99</SourceModelReference>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ItemGuid>a524d29d-685f-4660-8986-1dcbb423fd16</ItemGuid>
+    </Content>
+    <Content Include="Scripts\jquery-1.6.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.4.js" />
+    <Content Include="Scripts\jquery-1.6.4.min.js" />
+    <Content Include="Scripts\jquery.signalR-2.0.2.js" />
+    <Content Include="Scripts\jquery.signalR-2.0.2.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Infrastructure\GeneratedCode\Config\MessageForwardingInCaseOfFaultConfig.config">
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f67c46dc6-fd17-4ee8-9882-d448d795ad99</SourceModelReference>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ItemGuid>ae1ece1e-4245-4b47-b9e2-606dfa0701ea</ItemGuid>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Infrastructure\GeneratedCode\Config\TransportConfig.config">
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f67c46dc6-fd17-4ee8-9882-d448d795ad99</SourceModelReference>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ItemGuid>39f6d1f2-7937-45b4-bf8b-b5a7e36d1517</ItemGuid>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Infrastructure\GeneratedCode\Config\UnicastBusConfig.config">
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f67c46dc6-fd17-4ee8-9882-d448d795ad99</SourceModelReference>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ItemGuid>049d6a80-3249-4aa8-b511-6e4a7d893052</ItemGuid>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Infrastructure\GeneratedCode\Config\TransportConnectionString.config">
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f67c46dc6-fd17-4ee8-9882-d448d795ad99</SourceModelReference>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ItemGuid>450a62d5-d667-4b10-8d23-3d83c29b80e2</ItemGuid>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Infrastructure\GeneratedCode\Config\SecondLevelRetriesConfig.config">
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f67c46dc6-fd17-4ee8-9882-d448d795ad99</SourceModelReference>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ItemGuid>ebe2e113-72ea-4308-aba5-c914f476e166</ItemGuid>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\2\PubSub__NSB_SignalR____Demo\PubSub__NSB_SignalR\PubSub__NSB_SignalR.slnbldr%252f67c46dc6-fd17-4ee8-9882-d448d795ad99</SourceModelReference>
+      <ItemGuid>846ad00c-8c51-4d40-8f78-0bf92306b665</ItemGuid>
+    </None>
+    <Content Include="Infrastructure\Logging.config">
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\2\PubSub__NSB_SignalR____Demo\PubSub__NSB_SignalR\PubSub__NSB_SignalR.slnbldr%252f67c46dc6-fd17-4ee8-9882-d448d795ad99</SourceModelReference>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ItemGuid>5d0dc39b-d1cd-41ea-8bf7-2ce66a7c9f8a</ItemGuid>
+    </Content>
+    <None Include="MyPublisher.endpoints">
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\2\PubSub__NSB_SignalR____Demo\PubSub__NSB_SignalR\PubSub__NSB_SignalR.slnbldr%252f67c46dc6-fd17-4ee8-9882-d448d795ad99</SourceModelReference>
+      <ItemGuid>1179b343-36a8-433d-a724-db61daef6ee3</ItemGuid>
+    </None>
+    <None Include="packages.config">
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f67c46dc6-fd17-4ee8-9882-d448d795ad99</SourceModelReference>
+      <ItemGuid>270256fc-3dc6-4895-a4eb-8a700325f7eb</ItemGuid>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PubSub__NSB_SignalR.Contract\PubSub__NSB_SignalR.Contract.csproj">
+      <Project>{A3D888C9-C76C-4ECB-9DAF-737F89C4C475}</Project>
+      <Name>PubSub__NSB_SignalR.Contract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartAction>Program</StartAction>
+    <StartProgram>$(ProjectDir)$(OutputPath)NServiceBus.Host.exe</StartProgram>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
