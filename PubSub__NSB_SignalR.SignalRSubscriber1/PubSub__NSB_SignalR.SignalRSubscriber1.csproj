@@ -226,11 +226,11 @@
     </Compile>
     <Compile Include="Infrastructure\ConfigureMvcDependencyInjection.cs" />
     <Compile Include="Infrastructure\GeneratedCode\GeneratedWebInitialization.cs">
-      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\6\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
       <ItemGuid>8f440fa3-4e0e-47aa-91d9-0f2cb78b7f9f</ItemGuid>
     </Compile>
     <Compile Include="Infrastructure\GeneratedCode\TransportConfig.cs">
-      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\6\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
       <ItemGuid>1c80496c-227f-49b5-a401-6e79267ccaf7</ItemGuid>
     </Compile>
     <Compile Include="Infrastructure\MessageConventions.cs">
@@ -241,7 +241,7 @@
     <Compile Include="Infrastructure\NServiceBusDependencyResolverAdapter.cs" />
     <Compile Include="Infrastructure\INServiceBusComponent.cs" />
     <Compile Include="Infrastructure\WebGlobalInitialization.cs">
-      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\6\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
       <ItemGuid>506f3023-422d-4f9c-985f-90b0a2532f58</ItemGuid>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
@@ -304,22 +304,22 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Infrastructure\GeneratedCode\Config\MessageForwardingInCaseOfFaultConfig.config">
-      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\6\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ItemGuid>1e9995c3-0d22-4bfa-a62d-07c7c0d47b29</ItemGuid>
     </Content>
     <Content Include="Infrastructure\GeneratedCode\Config\TransportConfig.config">
-      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\6\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ItemGuid>3048dc2b-1017-4a40-8ed4-35380e1ea05f</ItemGuid>
     </Content>
     <Content Include="Infrastructure\GeneratedCode\Config\UnicastBusConfig.config">
-      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\6\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ItemGuid>e89ebc72-7d77-4762-ae92-34a88d08f805</ItemGuid>
     </Content>
     <Content Include="Infrastructure\GeneratedCode\Config\TransportConnectionString.config">
-      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\6\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ItemGuid>8d1736e1-21c8-4c2b-84a1-15f6d22f80e2</ItemGuid>
     </Content>
@@ -401,7 +401,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
-      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\6\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f3622a513-913e-4733-aaa3-c5c283f96f63</SourceModelReference>
       <ItemGuid>102c53c6-7342-4729-8822-c8da6f42ff6f</ItemGuid>
     </Content>
   </ItemGroup>

@@ -46,11 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\Notifications\EventMessageProcessor.cs">
-      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f2456c2e1-cbc2-4ca8-b3c4-3acfcbb31f7f</SourceModelReference>
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\6\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252f2456c2e1-cbc2-4ca8-b3c4-3acfcbb31f7f</SourceModelReference>
       <ItemGuid>55c28a5f-16c5-4caa-a23b-1d1bd799dc5f</ItemGuid>
     </Compile>
     <Compile Include="Infrastructure\Notifications\EventMessageSender.cs">
-      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\4\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252fdf21addc-dcfe-45ae-839d-eb91038eda35</SourceModelReference>
+      <SourceModelReference>modelbus://NuPattern.Runtime.Store/PubSub__NSB_SignalR/Element/C:\6\PubSub__NSB_SignalR_v2.0.2____Demo\PubSub__NSB_SignalR_v2.0.2\PubSub__NSB_SignalR.slnbldr%252fdf21addc-dcfe-45ae-839d-eb91038eda35</SourceModelReference>
       <ItemGuid>e15d2a2b-5fbf-4047-bda0-178594818c26</ItemGuid>
     </Compile>
     <Compile Include="Notifications\EventMessageProcessor.cs">
