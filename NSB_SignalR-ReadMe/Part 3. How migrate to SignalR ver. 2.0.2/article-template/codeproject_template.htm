@@ -1,0 +1,134 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--------------------------------------------------------------------------->  
+<p>
+</p><ul class="download"><br />
+<li><a href="https://github.com/artoban/NSB_SignalR_ver.2.0.2">The source for downloading</a></li>
+</ul>
+<h1>Part 3. How migrate to SignalR ver. 2.0.2 (even into Visual Studio 2012).</h1>
+<h2>Table Of Contents </h2>
+<ul>
+    <li><a href="#in">Introduction.</a>&nbsp;</li>
+    <li><a href="#pr">Pre-requests.</a>&nbsp;</li>
+	<ul>
+            <li><a href="#step1.1">Step 1.1. Transfer to .Net Framework 4.5.</a></li>
+	</ul>
+    <li><a href="#usr">Upgrading SignalR 1.x Projects to 2.0.</a></li>
+    	<ul>     	
+              <li><a href="#step2.1">Step 2.1. UniInstall SignalR ver.1.x packages.</a></li>
+              <li><a href="#step2.2">Step 2.2. Install SignalR ver.2.0.2 packages.</a></li>
+              <li><a href="#step2.3">Step 2.3. Continue upgrading.</a></li>
+              <li><a href="#step2.4">Step 2.4. Changes in Web.config - files.</a></li>
+	      <li><a href="#step2.5">Step 2.5. The Cross-domain communication.</a></li>
+                 <ul>
+                     <li><a href="#step2.5.1">Step 2.5.1. Install the Microsoft.Owin.Cors package.</a></li>
+                     <li><a href="#step2.5.2">Step 2.5.2. Changes Startup.cs - files.</a></li>
+                  </ul>
+              <li><a href="#Res">Results.</a></li>	
+         </ul>   
+     <li><a href="#sum">Summary.</a></li>
+ </ul>
+
+<h2><a name="in" id="A0">Introduction.</a></h2>
+
+<p>This document is the continue of <a href="http://www.codeproject.com/Articles/685278/CQRS-Event-Sourcing-pattern-with-NServiceBus-ASP-N#">the base article </a> 
+and describe the migration sequence from SignalR version 1.x to SignalR version 2.0.2 currently latest.
+
+
+<h2><a name="pr" id="A1">Pre-requests.</a></h2>
+<p><a name="step1.1" id="A2"><b>Step 1.1.</b>&emsp;Transfer to .Net Framework 4.5.</a></p>
+SignalR version 2.0.2 requires transfer the projects : BasicChat.Mvc, BasicChat.Wpf, PubSub__NSB_SignalR.MyPublisher, PubSub__NSB_SignalR.SignalRSubscriber1 
+to .Net Framework 4.5. </br>
+Right-click on the project name in the <b>Solution Explorer</b> -> <b>Properties</b> -> <b>Application</b> -> <b>Target framework</b>.</br>
+Re-build solution. Simple comment conflict attributes into PubSub__NSB_SignalR.SignalRSubscriber1\Models\AccountModels.cs.</br>
+In Visual Studio 2012 top-manu: <b>Tools</b>-> <b>Library Package Manager</b>-> <b>Package Manager Console</b>.</br>
+
+<h2><a name="usr" id="A4">Upgrading SignalR 1.x Projects to 2.0.</a></h2>
+<p><b><a name="step2.1" id="A5">Step 2.1.</a></b>&emsp;Uninstall SignalR ver.1.x packages.</p>
+Attempt to uninstall previous SignalR packages :</br> 
+
+&emsp;&emsp;&emsp;  Uninstall-Package Microsoft.AspNet.SignalR.Core -Version 1.0.0-rc2 -RemoveDependencies –ProjectName PubSub__NSB_SignalR.SignalRSubscriber1  </br>
+&emsp;&emsp;&emsp;  Uninstall-Package Microsoft.AspNet.SignalR.Core -Version 1.0.0 -RemoveDependencies –ProjectName PubSub__NSB_SignalR.SignalRSubscriber1   </br>
+&emsp;&emsp;&emsp;  Uninstall-Package Microsoft.AspNet.SignalR.Core -Version 1.0.0-rc2 -RemoveDependencies –ProjectName BasicChat.Mvc  </br>
+&emsp;&emsp;&emsp;  Uninstall-Package Microsoft.AspNet.SignalR.Core -Version 1.0.0 -RemoveDependencies –ProjectName BasicChat.Mvc </br>
+&emsp;&emsp;&emsp;  Uninstall-Package Microsoft.AspNet.SignalR.Client -Version 1.0.1 -RemoveDependencies –ProjectName BasicChat.Wpf</br>
+</br>
+In any case remove manualy the references on the following libraries:</br>
+<p><span><img width="750" height="450" src="../Pictures/Step1.png"></span>
+<p>into projects : </br>
+&emsp;&emsp;&emsp;  PubSub__NSB_SignalR.SignalRSubscriber1; </br>
+&emsp;&emsp;&emsp;  BasicChat.Mvc; </br>
+&emsp;&emsp;&emsp;  BasicChat.Wpf. </br>
+
+<p><a name="step2.2" id="A6"><b>Step 2.2.</b></a>&emsp;Install SignalR ver.2.0.2 packages.</p>
+&emsp;&emsp;&emsp; Install-Package Microsoft.AspNet.SignalR -Version 2.0.2 –ProjectName PubSub__NSB_SignalR.SignalRSubscriber1</br>
+&emsp;&emsp;&emsp; Install-Package Microsoft.AspNet.SignalR -Version 2.0.2 –ProjectName BasicChat.Mvc</br>
+&emsp;&emsp;&emsp; Install-Package Microsoft.AspNet.SignalR.Client -Version 2.0.2 –ProjectName BasicChat.Wpf</br>
+
+<p><a name="step2.3" id="A6"><b>Step 2.3.</b></a>&emsp;Continue upgrading.</br> 
+Next ,follow to instractions on the page: http://www.asp.net/signalr/overview/signalr-20/getting-started-with-signalr-20/upgrading-signalr-1x-projects-to-20 </br>
+for the projects: PubSub__NSB_SignalR.SignalRSubscriber1, BasicChat.Mvc, means the Views\Home\Index.cshtml - files.</br>
+<p><span><img width="750" height="450" src="../Pictures/Step3.png"></span></p>
+Verify also that you have the jquery.signalR-2.0.2 and jquery.signalR-2.0.2.min into PubSub__NSB_SignalR.SignalRSubscriber1\Scripts and BasicChat.Mvc\Scriptsdirectories.</br>
+<p><a name="step2.4" id="A7"><b>Step 2.4.</b></a>&emsp;Changes in Web.config - files.</br> 
+To prevent SignalR 2.0.2 and Owin 2.0.0 dependancy conflict it's requires add to Web.config files the following runtime - sections:
+only for for Web - projects: PubSub__NSB_SignalR.SignalRSubscriber1\Web.config, BasicChat.Mvc\Web.config.</br>
+Verify that those changes had been genereted:</br>
+<p><span><img width="750" height="200" src="../Pictures/Step4.png"></span>
+<p><a name="step2.5" id="A8"><b>Step 2.5.</b></a>&emsp;The Cross-domain communication establishing.</br>
+<p><a name="step2.5.1" id="A9"><b>Step 2.5.1.</b>&emsp;Install the Microsoft.Owin.Cors package.</a></p>
+Install-Package Microsoft.Owin.Cors -Version 2.1.0 –ProjectName BasicChat.Mvc </br>
+Install-Package Microsoft.Owin.Cors -Version 2.1.0 –ProjectName PubSub__NSB_SignalR.SignalRSubscriber1 </br>
+<p><a name="step2.5.2" id="A10"><b>Step 2.5.2.</b>&emsp;Changes in Startup.cs - files.</a></p>
+To allow cross-domain communication for projects: BasicChat.Mvc and PubSub__NSB_SignalR.SignalRSubscriber1 it's mandatory to </br>
+change their Startup.cs - files (added to project BasicChat.Mvc and PubSub__NSB_SignalR.SignalRSubscriber1 on step 2.b) as is follows bellow: </br>
+<pre>
+using Microsoft.AspNet.SignalR;
+using Microsoft.Owin;
+using Microsoft.Owin.Cors;
+using Owin;
+
+[assembly: OwinStartup(typeof(PubSub__NSB_SignalR.SignalRSubscriber1.Startup))]
+namespace PubSub__NSB_SignalR.SignalRSubscriber1
+{
+
+    public class Startup
+    {
+        public void Configuration(IAppBuilder app)
+        {
+            // Branch the pipeline here for requests that start with "/signalr"
+            app.Map("/signalr", map =>
+            {
+                // Setup the CORS middleware to run before SignalR.
+                // By default this will allow all origins. You can 
+                // configure the set of origins and/or http verbs by
+                // providing a cors options with a different policy.
+                map.UseCors(CorsOptions.AllowAll);
+                var hubConfiguration = new HubConfiguration
+                {
+                    // You can enable JSONP by uncommenting line below.
+                    // JSONP requests are insecure but some older browsers (and some
+                    // versions of IE) require JSONP to work cross domain
+                    EnableJSONP = true
+                };
+                // Run the SignalR pipeline. We're not using MapSignalR
+                // since this branch already runs under the "/signalr"
+                // path.
+                map.RunSignalR(hubConfiguration);
+            });
+        }
+    }
+}
+</pre>
+
+<h2><a name="Res" id="A11">Results.</a></h2>
+<p>Remove the file PubSub__NSB_SignalR.SignalRSubscriber1\App_Start\RegisterHubs.cs as not actual.</br>
+Add "using Microsoft.AspNet.SignalR.Client;" into BasicChat.Wpf\SignalrClientSeparatedConnectionProxyWindow.xaml.cs and</br>
+BasicChat.Wpf\SignalrClientSharedConnectionProxyWindow.xaml.cs - files.</br>
+Re-build the solution. Thye launching orders are the same as in the base article.</br>
+
+<h2><a name="sum" id="A12">Summary.</a></h2>
+Migration to using SignalR ver. 2.0.2 is completed. Tests must includes verification of ability send messages according to the schema shown in the base article.
+</body>
+
+</html>
+

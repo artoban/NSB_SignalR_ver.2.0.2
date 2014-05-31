@@ -34,6 +34,45 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicChat.Wpf", "BasicChat.
 		{621D142C-3F61-4505-B11C-61E12FAE848A} = {621D142C-3F61-4505-B11C-61E12FAE848A}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NSB_SignalR-ReadMe", "NSB_SignalR-ReadMe", "{E40D3D52-B82D-4926-818A-E374F2E02669}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part 2. Command processing via NServiceBus and Service Matix", "Part 2. Command processing via NServiceBus and Service Matix", "{AF388D1C-D318-4231-B48C-38DB57B03039}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part 3. How migrate to SignalR ver. 2.0.2", "Part 3. How migrate to SignalR ver. 2.0.2", "{C46D8EC1-B034-41B7-8E62-DFD0BEAC26D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "article-template", "article-template", "{38735026-028B-4AA3-872A-5299F9BCCA92}"
+	ProjectSection(SolutionItems) = preProject
+		NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\article-template\codeproject_template.htm = NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\article-template\codeproject_template.htm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "article-template", "article-template", "{F82C7A87-8F3B-47AD-B4D7-A3FFC0CF4F6A}"
+	ProjectSection(SolutionItems) = preProject
+		NSB_SignalR-ReadMe\Part 3. How migrate to SignalR ver. 2.0.2\article-template\codeproject_template.htm = NSB_SignalR-ReadMe\Part 3. How migrate to SignalR ver. 2.0.2\article-template\codeproject_template.htm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pictures", "Pictures", "{89C0A3B9-B067-47BD-A409-9BD91E156388}"
+	ProjectSection(SolutionItems) = preProject
+		NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\GeneralDesign.gif = NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\GeneralDesign.gif
+		NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\GeneralDesign2.gif = NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\GeneralDesign2.gif
+		NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Result1.gif = NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Result1.gif
+		NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Result2.gif = NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Result2.gif
+		NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step1a.gif = NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step1a.gif
+		NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step1b.gif = NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step1b.gif
+		NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step1c.gif = NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step1c.gif
+		NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step1d.gif = NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step1d.gif
+		NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step2.0.gif = NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step2.0.gif
+		NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step2a.gif = NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step2a.gif
+		NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step2b.gif = NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step2b.gif
+		NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step2c.gif = NSB_SignalR-ReadMe\Part 2. Command processing via NServiceBus and Service Matix2\Pictures\Step2c.gif
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pictures", "Pictures", "{32EBB0A3-B23B-4968-A5E4-96FAE8A7660F}"
+	ProjectSection(SolutionItems) = preProject
+		NSB_SignalR-ReadMe\Part 3. How migrate to SignalR ver. 2.0.2\Pictures\Step1.png = NSB_SignalR-ReadMe\Part 3. How migrate to SignalR ver. 2.0.2\Pictures\Step1.png
+		NSB_SignalR-ReadMe\Part 3. How migrate to SignalR ver. 2.0.2\Pictures\Step3.png = NSB_SignalR-ReadMe\Part 3. How migrate to SignalR ver. 2.0.2\Pictures\Step3.png
+		NSB_SignalR-ReadMe\Part 3. How migrate to SignalR ver. 2.0.2\Pictures\Step4.png = NSB_SignalR-ReadMe\Part 3. How migrate to SignalR ver. 2.0.2\Pictures\Step4.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +108,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AF388D1C-D318-4231-B48C-38DB57B03039} = {E40D3D52-B82D-4926-818A-E374F2E02669}
+		{C46D8EC1-B034-41B7-8E62-DFD0BEAC26D4} = {E40D3D52-B82D-4926-818A-E374F2E02669}
+		{38735026-028B-4AA3-872A-5299F9BCCA92} = {AF388D1C-D318-4231-B48C-38DB57B03039}
+		{89C0A3B9-B067-47BD-A409-9BD91E156388} = {AF388D1C-D318-4231-B48C-38DB57B03039}
+		{F82C7A87-8F3B-47AD-B4D7-A3FFC0CF4F6A} = {C46D8EC1-B034-41B7-8E62-DFD0BEAC26D4}
+		{32EBB0A3-B23B-4968-A5E4-96FAE8A7660F} = {C46D8EC1-B034-41B7-8E62-DFD0BEAC26D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		GuidanceWorkflows = a5e9f15b-ad7f-4201-851e-186dd8db3bc9:ServiceMatrix Guidance:4.0.0

@@ -1,0 +1,282 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!--------------------------------------------------------------------------->  
+<p>
+</p><ul class="download"><br />
+<li><a href="PubSub__NSB_SignalR____Demo_without_packages.zip">Download source - 1.7 MB</a></li>
+</ul>
+<h1>Part 2. Command processing via NServiceBus and Service Matix.</h1>
+<h2>Table Of Contents </h2>
+<ul>
+    <li><a href="#in">Introduction</a>&nbsp;</li>
+    <li><a href="#gd">General design</a>&nbsp;</li>
+    <li><a href="#uc">Using the Service Matrix for commanding.</a></li>
+    	<ul>
+            <li><a href="#stage1">Stage1. Command's creating & sending</a></li>
+            	<ul>
+			<li><a href="#step1A">Step1A. Add a new service.</a></li>
+            		<li><a href="#step1B">Step1B. Add a new command.</a></li>
+            		<li><a href="#step1C">Step1C. Select deploy holder for the command sender.</a></li>
+            		<li><a href="#step1D">Step1D. Deploy the command processor.</a></li>
+            		<li><a href="#Res1">Stage#1. Results.</a></li>
+		</ul>
+            <li><a href="#stage2">Stage2. Publishing an event initialized via command.</a></li>
+            	<ul>
+			<li><a href="#step2A">Step2A. Create the command publish event.</a></li>
+            		<li><a href="#step2B">Step2B. Subscribe the command's event.</a></li>
+            		<li><a href="#step2C">Step2C. Deploy the command's event.</a></li>
+                        <li><a href="#Res2">Stage#2. Intermediate Result.</a></li>
+				<ul>
+                                	<li><a href="#Res2Dr">Results diagram.</a></li>
+				</ul>
+                        <li><a href="#step2D">Step2D. Adding the command's content.</a></li>
+		</ul>
+         </ul>   
+     <li><a href="#sum">Summary.</a></li>
+ </ul>
+
+<h2><a name="in" id="A0">Introduction</a></h2>
+
+<p>This document is the continue of the article and describe the NServiceBus commands processing using Service Matrix.</p>
+
+<h2><a name="gd" id="A1">General Design</a></h2>
+<span><img width="750" height="450" src="../Pictures/GeneralDesign2.gif"></span><p>
+
+<p>Further design remains the same as in the article</p>
+
+<h2><a name="uc" id="A2">Using the Service Matrix for commanding.</a></h2>
+<p><code><a name="stage1" id="A3">Stage1. Command's creating & sending.</a></code></p>
+Firstly, let's create a new service because simple reason that does not bring down all in one heap with existed code.
+<p><code><a name="step1A" id="A4">Step1A.</a></code> Add a new service.</p>
+<span><img width="750" height="450" src="../Pictures/Step1a.gif"></span><p>
+
+<p><code><a name="step1B" id="A5">Step1B.</a></code> Add a new command.</p>
+<span><img width="750" height="450" src="../Pictures/Step1b.gif"></span><p>
+
+
+<p><code><a name="step1C" id="A6">Step1C.</a></code> Deploy the Command1Sender to the existed MVC - project SignalRSubscriber1. Strictly speaking, it was necessary <br />
+to create a separate applicatin where Command1 will be located. However, it was decided (for the code compactness) <br /> 
+place it into existed application the  PubSub__NSB_SignalR.SignalRSubscriber1. It's launching is marked with violet dash-line <br />
+into general design diagram.</p>
+<span><img width="750" height="450" src="../Pictures/Step1c.gif"></span><p>
+
+
+<p><code><a name="step1D" id="A7">Step1D.</a></code> Deploy the Command1Processor to existed Console Bus Host application named MyPublisher.</p>
+<span><img width="750" height="450" src="../Pictures/Step1d.gif"></span><p>
+
+
+
+<p>Verify the PubSub__NSB_SignalR\PubSub__NSB_SignalR.Code\Infrastructure\Commander\Command1Sender.cs - file</p>
+<pre>
+using System;
+using NServiceBus;
+using PubSub__NSB_SignalR.InternalMessages.Commander;
+
+namespace PubSub__NSB_SignalR.Commander
+{
+    public partial class Command1Sender: ICommand1Sender, NServiceBus.INServiceBusComponent
+    {
+        public void Send(Command1 message)
+        {
+		Bus.Send(message);	
+	}
+
+        public IBus Bus { get; set; }
+    }
+
+    public interface ICommand1Sender
+    {
+        void Send(Command1 message);
+    }
+}
+</pre>
+<p>
+        Verify or/and add to PubSub__NSB_SignalR.SignalRSubscriber1 - project the references on the bello accembles:<br />
+        	PubSub__NSB_SignalR.Contract.dll;<br />
+        	PubSub__NSB_SignalR.InternalMessages.dll.<br />
+        
+	Edit the PubSub__NSB_SignalR\PubSub__NSB_SignalR.SignalRSubscriber1\Controllers\HomeController.cs - file
+</p>
+<pre>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+using Microsoft.AspNet.SignalR;
+using PubSub__NSB_SignalR.Notifications; // added manualy
+using PubSub__NSB_SignalR.InternalMessages.Notifications; // added manualy
+
+namespace PubSub__NSB_SignalR.SignalRSubscriber1.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ICommand1Sender Sender { get; set; }
+        public ActionResult Index()
+        {
+            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+
+            return View();
+        }
+
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your app description page.";
+            IHubContext hubContext = GlobalHost.ConnectionManager.GetHubContext<Chat>();
+            hubContext.Clients.All.send("XXXX");
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+            Sender.Send(new Command1());
+            return View();
+        }
+    }
+}
+</pre>
+
+<p>Build the solution.<br /> 
+   <i>Remark:</i> 
+   All above codes must be done automaticaly except marked as "added manualy". <br/>
+   In case of confusion, misunderstanding as an <a href="http://particular.net/ServiceMatrix-1 - video">alternative source on this topic</a> 
+   is strongly recommended.<br/>
+   <i>Need remember !!!</i> So-called strange errors/behaviors in many cases are result of incorrect users actions.<br/>
+                            Wizard will not throws any message because of the confusion created by users.
+                            However generated code will not compile or will not work.<br/>
+</p>
+
+<p><code><a name="Res1" id="A8">Stage #1 (results).</a></code>Run application. This stage possitive result looks like as follows:</p>
+<span><img width="750" height="450" src="../Pictures/Result1.gif"></span><p>
+
+
+<p><code><a name="stage2" id="A9">Stage2. Publishing an event initialized via command.</a></code></p>
+So, the command launches from PubSub__NSB_SignalR.SignalRSubscriber1 MVC - application
+(in this case this name is slightly confuses).<br/>
+<p><span><img width="750" height="450" src="../Pictures/Step2.0.gif"></span><p>
+
+The Command1 handles into MyPublisher - application. To see this, double click on Command1Processor into<br/>
+the Solution Builder pannel (a picture is not given).
+
+<p><code><a name="step2A" id="A10">Step2A. Create the command's publish event.</a></code></p>
+<span><img width="750" height="450" src="../Pictures/Step2a.gif"></span><p>
+
+<p><code><a name="step2B" id="A11">Step2B. Subscribe the command's event.</a></code></p>
+<span><img width="750" height="450" src="../Pictures/Step2b.gif"></span><p>
+
+<p><code><a name="step2C" id="A12">Step2C. Deploy the command's event.</a></code></p>
+<span><img width="750" height="450" src="../Pictures/Step2c.gif"></span><p>
+
+<p><code><a name="Res2" id="A13">Stage #2 (intermadiate result).</a></code>Build and debug the application.<br/>
+Double-click the Command1AccepedEventProcessor into the Solution Builder pannel.<br/>
+This stage intermediate possitive result is ability to handle the Command1AccepedEvent into code, see bellow:</p>
+<pre>
+using System;
+using NServiceBus;
+using PubSub__NSB_SignalR.Contract.Commander;
+
+namespace PubSub__NSB_SignalR.Notifications
+{
+    public partial class Command1AccepedEventProcessor
+    {	
+        partial void HandleImplementation(Command1AccepedEvent message)
+        {
+            // Implement your handler logic here.
+            Console.WriteLine("Notifications received " + message.GetType().Name);              
+        }
+    }
+}
+</pre>
+<p><code><a name="Res2Dr" id="A14">Results diagram</a></code></p>
+<span><img width="750" height="450" src="../Pictures/Result2.gif"></span><p>
+
+<p><code><a name="step2D" id="A15">Step2D. Adding the command's content.</a></code></p>
+<p>At this stage, the command is launched and processed but does not send any data. Let's make needed updates.</br>
+Add into PubSub__NSB_SignalR\PubSub__NSB_SignalR.InternalMessages\Commander\Command1.cs - file <br/>
+   the code shown bellow:
+<pre>
+using System;
+using NServiceBus;
+
+namespace PubSub__NSB_SignalR.InternalMessages.Commander
+{
+    public class Command1
+    {
+        public Command1()
+        {
+            Id = Guid.NewGuid();
+        }
+
+        public Guid Id { get; set; }
+        public string Type { get; set; }
+    }
+}
+</pre>
+</p>
+<p>Add into PubSub__NSB_SignalR\PubSub__NSB_SignalR.Contract\Commander\Command1AccepedEvent.cs - file <br/>
+   relative update: <br/>
+<pre>
+using System;
+using NServiceBus;
+
+namespace PubSub__NSB_SignalR.Contract.Commander
+{
+    public class Command1AccepedEvent
+    {
+        public Guid Id { get; set; }
+        public string Type { get; set; }
+    }
+}
+</pre>
+<p>Update the code into PubSub__NSB_SignalR\PubSub__NSB_SignalR.Code\Infrastructure\Commander\Command1Processor.cs - file: <br/>
+<pre>
+using System;
+using NServiceBus;
+using PubSub__NSB_SignalR.InternalMessages.Commander;
+
+
+namespace PubSub__NSB_SignalR.Commander
+{
+    public partial class Command1Processor : IHandleMessages<Command1>
+    {	
+		public void Handle(Command1 message)
+		{
+			this.HandleImplementation(message);
+            		this.Bus.Publish<PubSub__NSB_SignalR.Contract.Commander.Command1AccepedEvent>(e => {
+                		/*e.Id = message.Id;
+                                e.Type = "PubSub__NSB_SignalR.Contract.Commander.Command1AccepedEvent";*/
+                		e.CommandType = message.Type;	
+            		});
+		}    
+
+		partial void HandleImplementation(Command1 message);
+
+		public IBus Bus { get; set; }
+
+    }
+}
+</pre><br/>
+Run the application in debug mode now. Verify that Command1 transmits the data.
+This is the final positive result for stage#2.
+</p>
+<p>Remark !!! The Visual Studio, from time to time, throws message with the proposal update code. If you accept it, the last two-three  code fragments <br/>
+may be need re-enter them again. <br/>
+If you leave opened the PubSub__NSB_SignalR\PubSub__NSB_SignalR.Code\Infrastructure\Commander\Command1Processor.cs <br/>
+may be faced this the strange situation when some in of said above code fragments will not accesible via debugger and break-points throws off.<br />
+The command messages will arive with GUID{0000...} etc. In this case need make the following:<br />
+	&emsp;a) right - click on file's tab-lable which throws off break points;<br/>
+	&emsp;b) select "Open Containg folder" from context menu;<br/>
+	&emsp;c) copy-paste the code's fragment said above.<br/>
+
+</p>
+
+
+<h2><a name="sum" id="A16">Summary.</a></h2>
+<p>It had been shown how the NServiceBus processes independent events and command emitted events.</p>
+
+
+</body>
+
+</html>
+
